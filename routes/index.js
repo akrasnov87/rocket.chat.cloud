@@ -1,11 +1,10 @@
 var express = require("express");
 var router = express.Router();
 
-var fs = require('fs');
-var pth = require('path');
-
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  var data = require('../utilits/change-license').getLicense();
+
+  res.render("index", { title: "Express", code: JSON.stringify(data, null, 4) });
 });
 
 /**

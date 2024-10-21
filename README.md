@@ -1,8 +1,22 @@
 ## Описание
 
-Сервис авторизации для Rocket.Chat
+Сервис активации для `Rocket.Chat`. 
 
-### Применение
+Суть активации в запуске хоста и указании этого адреса в настройках переменных `Rocket.Chat`:
+
+<pre>
+Cloud_Url=http://localhost:9001
+</pre>
+
+### Внутрянка
+
+Сервис просто переопределяет основной набор методов, которые обращаются к хосту `cloud.rocket.chat` (см. `./routes/index.js`).
+
+### Docker
+
+Работа и способ запуска описан в каталоге .`/scripts` (см. `README.md`)
+
+### Ручное запуск без контейнеров
 
 1. В корне приложения создать файл `.env` с содержимым:
 <pre>
@@ -12,7 +26,7 @@ DEVICE_CODE=67109d4788e4b137a8fe5591
 WORKSPACE_ID= 67109dc4d9b4c3e99f7fcf8d
 </pre>
 
-2. В корне приложения создать файл `license.json` с содержимым:
+2. В корне приложения создать файл `data/license.json` с содержимым:
 <pre>
 {
 	"version": "3.0",
@@ -99,3 +113,31 @@ node ./bin/www --env-file=.env
 * В конце при регистрации `Workspace` указывает указываем почту и нажимаем "Зарегистрироваться"
 * Как только появится уведомление, что рабочее пространство зарегистрировано и готово к работе - обновляем страницу
 * Поздравляю, у Вас активирована версия без ограничений!!!  
+
+### Разработка и отладка
+
+1. после получение версии из `git` в к корне каталога выполняем `npm install`;
+2. создаём `launch.json` файл в папке `.vscode`:
+
+<pre>
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "cloud start",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/data/.env"
+    }
+  ]
+}
+</pre>
+
+3. создаём файлы `.env` и `data/license.json`.
+4. запускаем проект в `vscode`

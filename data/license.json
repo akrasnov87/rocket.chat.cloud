@@ -1,0 +1,67 @@
+{
+	"version": "3.0",
+	"information": {
+		"id": "670f499588e4b137a8fcd000",
+		"autoRenew": false,
+		"createdAt": "2024-10-16T04:38:17.561381544Z",
+		"visualExpiration": null,
+		"notifyAdminsAt": null,
+		"notifyUsersAt": null,
+		"trial": false,
+		"cancellable": true,
+		"offline": false,
+		"grantedBy": {},
+		"grantedTo": {},
+		"tags": [{ "name": "Rocket Chat Cloud", "color": "#F3BE08" }]
+	},
+	"validation": {
+		"serverUrls": [{ "value": "localhost:3000", "type": "url" }],
+		"cloudWorkspaceId": "670f499588e4b137a8fcd000",
+		"serverUniqueId": "d0b77298-bcc2-4a96-bbc3-0b0919ae5c4f",
+		"validPeriods": [{ "validUntil": "2099-12-05T04:38:17.561376177Z", "invalidBehavior": "invalidate_license" }],
+		"legalTextAgreement": { "type": "required", "acceptedVia": "cloud" },
+		"statisticsReport": { "required": true, "allowedStaleInDays": 2 }
+	},
+	"grantedModules": [
+		{ "module": "auditing" },
+		{ "module": "canned-responses" },
+		{ "module": "ldap-enterprise" },
+		{ "module": "livechat-enterprise" },
+		{ "module": "voip-enterprise" },
+		{ "module": "omnichannel-mobile-enterprise" },
+		{ "module": "engagement-dashboard" },
+		{ "module": "push-privacy" },
+		{ "module": "scalability" },
+		{ "module": "teams-mention" },
+		{ "module": "saml-enterprise" },
+		{ "module": "oauth-enterprise" },
+		{ "module": "federation" },
+		{ "module": "videoconference-enterprise" },
+		{ "module": "message-read-receipt" },
+		{ "module": "outlook-calendar" },
+		{ "module": "hide-watermark" },
+		{ "module": "custom-roles" },
+		{ "module": "accessibility-certification" },
+		{ "module": "unlimited-presence" }
+
+	],
+	"limits": {
+		"activeUsers": [
+			{ "max": 500, "behavior": "start_fair_policy" },
+			{ "max": 501, "behavior": "prevent_action" }
+		],
+		"guestUsers": [
+			{ "max": 500, "behavior": "start_fair_policy" },
+			{ "max": 501, "behavior": "prevent_action" }
+		],
+		"roomsPerGuest": [
+			{ "max": 500, "behavior": "start_fair_policy" },
+			{ "max": 501, "behavior": "prevent_action" }
+		],
+		"monthlyActiveContacts": [
+			{ "max": 500, "behavior": "start_fair_policy" },
+			{ "max": 501, "behavior": "prevent_action" }
+		]
+	},
+	"cloudMeta": {}
+}

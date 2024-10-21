@@ -1,8 +1,10 @@
 {
   "name": "rocket.chat.cloud",
-  "version": "0.0.0",
+  "description": "Сервис активации для Rocket.Chat",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build:image": "./scripts/build-image.sh",
     "start": "node ./bin/www"
   },
   "dependencies": {

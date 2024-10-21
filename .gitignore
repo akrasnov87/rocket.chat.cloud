@@ -1,5 +1,2 @@
 node_modules
 *-lock.json
-.env
-license.json
-.vscode
