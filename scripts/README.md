@@ -4,7 +4,7 @@
 
 ## Запуск образа
 
-`docker run -e DEBUG=rocket.chat.cloud:* --rm -p 9001:3000 akrasnov87/rocket.chat.cloud:0.0.0`
+`docker run -e DEBUG=rocket.chat.cloud:* --rm -p 9001:3000 akrasnov87/rocket.chat.cloud:latest`
 
 __Примечание__: если отладочная информация не нужна, то нужно удалить переменную `DEBUG`
 
