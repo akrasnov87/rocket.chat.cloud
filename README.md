@@ -8,6 +8,8 @@
 Cloud_Url=http://localhost:9001
 </pre>
 
+__Примечание__: активация работает, только с проектом `https://github.com/akrasnov87/Rocket.Chat`.
+
 ### Внутрянка
 
 Сервис просто переопределяет основной набор методов, которые обращаются к хосту `cloud.rocket.chat` (см. `./routes/index.js`).
