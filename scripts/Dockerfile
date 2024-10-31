@@ -10,4 +10,4 @@ WORKDIR /app
 
 EXPOSE 9001
 
-CMD ["node", "bin/www", "--env-file=/app/.env"]
+CMD ["node", "bin/www", "--env-file=/app/data/.env"]

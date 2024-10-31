@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", function (req, res, next) {
-  var data = require('../utilits/change-license').getLicense();
+  var data = require('../utilits/change-license').getLicense(req);
 
   res.render("index", { title: "Express", code: JSON.stringify(data, null, 4) });
 });
@@ -36,7 +36,7 @@ router.post("/api/v2/register/workspace/intent", function (req, res, next) {
  * fetchWorkspaceSyncPayload
  */
 router.post("/api/v2/workspaces/:device_code/sync", function (req, res, next) {
-  var data = require('../utilits/change-license').getLicense();
+  var data = require('../utilits/change-license').getLicense(req);
 
   res.json({
     license: "KAG_" + Buffer.from(JSON.stringify(data)).toString('base64'),
@@ -49,7 +49,7 @@ router.post("/api/v2/workspaces/:device_code/sync", function (req, res, next) {
 
 
 router.get("/api/v2/workspaces/:device_code/license", function (req, res, next) {
-  var data = require('../utilits/change-license').getLicense();
+  var data = require('../utilits/change-license').getLicense(req);
   res.json({
     version: 3,
     address: "",
@@ -100,12 +100,12 @@ router.get("/api/v2/register/workspace/poll", function (req, res, next) {
       client_name: "I'love Russia",
       client_id: "6711da97dc274666798e1105",
       client_secret: "3l14dZkm4RkeXcAY_X-r",
-      redirect_uris: ["http://localhost:3000/admin/cloud/oauth-callback"],
+      redirect_uris: [`${req.protocol}://${req.headers['host']}/admin/cloud/oauth-callback`],
       publicKey:
         "-----BEGIN RSA PUBLIC KEY-----\\nMIIBCgKCAQEA1qZ0QSq49x6KUXQ/ZFv3lPdYhYU1BZUqjlVmDvwZ82aE3jx8nQmA\\nfhReFTH6VGqiaevCqZ3Fc2mBOQOHFP9/Wfcx09k28exAseyHfNFRNU+g+vTCFlED\\nOIC7mzUwXSzWMNL00QQiAIOCOT1w5E3xuoGARPjIcSv3YzEwGpC0eGyNKqtFkWSs\\neFl/fR8l8O9/RDzWNEuDC/b9ZT8YtEp8HZMdpqGDSycwrcd4zcwG045XegLrsjrq\\ntBmoimmvNkNGAi3ifi9vo63wrtIiPWBVup273wtjqp6RgPDudoTbnSxc0/y3jrF+\\nPs0H1TOPbPd7FUcCjpD0DEgqDuetOq54YwIDAQAB\\n-----END RSA PUBLIC KEY-----\\n",
       client_secret_expires_at: 0,
       registration_client_uri:
-        `http://localhost:${process.env.PORT}/api/v2/workspaces/${process.env.DEVICE_CODE}`,
+        `${req.protocol}://${req.headers['host']}/api/v2/workspaces/${process.env.DEVICE_CODE}`,
       licenseData: {
         version: 0,
         address: "",
@@ -126,7 +126,7 @@ router.post("/api/oauth/token", function (req, res, next) {
   });
 });
 
-router.get("/api/v3/comms/workspace", function (req, res, next) {
+router.post("/api/v3/comms/workspace", function (req, res, next) {
   res.json({ announcements: { create: [], delete: [] } });
 });
 
