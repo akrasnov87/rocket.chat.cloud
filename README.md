@@ -28,6 +28,7 @@ PORT=9001
 DEBUG=rocket.chat.cloud:*
 DEVICE_CODE=67109d4788e4b137a8fe5591
 WORKSPACE_ID= 67109dc4d9b4c3e99f7fcf8d
+ROOT_URL=http://localhost
 </pre>
 
 2. В корне приложения создать файл `data/license.json` с содержимым:
