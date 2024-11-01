@@ -77,7 +77,8 @@ ROOT_URL=http://localhost
 		{ "module": "hide-watermark" },
 		{ "module": "custom-roles" },
 		{ "module": "accessibility-certification" },
-		{ "module": "unlimited-presence" }
+		{ "module": "unlimited-presence" },
+		{ "module": "device-management" }
 
 	],
 	"limits": {
