@@ -15,7 +15,7 @@
 		"tags": [{ "name": "Rocket Chat Cloud", "color": "#F3BE08" }]
 	},
 	"validation": {
-		"serverUrls": [{ "value": "host.docker.internal:8032", "type": "url" }],
+		"serverUrls": [{ "value": "localhost:3001", "type": "url" }],
 		"cloudWorkspaceId": "670f499588e4b137a8fcd000",
 		"serverUniqueId": "d0b77298-bcc2-4a96-bbc3-0b0919ae5c4f",
 		"validPeriods": [{ "validUntil": "2099-12-05T04:38:17.561376177Z", "invalidBehavior": "invalidate_license" }],
