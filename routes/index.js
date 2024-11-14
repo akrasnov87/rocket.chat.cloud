@@ -176,7 +176,7 @@ router.post("/api/v2/register/workspace", function (req, res, next) {
 
 router.post("/api/oauth/revoke", function (req, res, next) {
   console.debug(`POST /api/oauth/revoke - is empty`);
-  res.sendStatus(400).send("NOT OVERRIDE");
+  res.json({ });
 });
 
 module.exports = router;
